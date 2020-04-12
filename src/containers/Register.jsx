@@ -9,7 +9,7 @@ const Register = () => (
 			<form className="register__container--form">
 				<input className="input" type="text" placeholder="Name" />
 				<input className="input" type="text" placeholder="eMail" />
-				<input className="input" type="password" placeholder="Password" />
+				<input className="input" type="password" placeholder="Password" autoComplete="false" />
 				<button className="button">Sign up</button>
 			</form>
 			<Link to="/login">Log in</Link>
