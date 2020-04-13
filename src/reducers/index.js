@@ -20,6 +20,26 @@ const reducer = (state, action) => {
 				...state,
 				user: action.payload
 			};
+		case 'SET_REGISTER_REQUEST':
+			return {
+				...state,
+				user: action.payload
+			};
+		case 'GET_VIDEO_REQUEST':
+			return {
+				...state,
+				playing:
+					state.trends.find((item) => item.id === Number(action.payload)) ||
+					state.originals.find((item) => item.id === Number(action.payload)) ||
+					[]
+			};
+		case 'GET_VIDEO_BY_TITLE':
+			return {
+				...state,
+				searching: state.trends
+					.concat(state.originals)
+					.filter((item) => item.title.toLowerCase().includes(action.payload.toLowerCase()))
+			};
 		default:
 			return state;
 	}

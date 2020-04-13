@@ -7,10 +7,17 @@ import CarouselItem from '../components/CarouselItem';
 import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
-const Home = ({ myList, trends, originals }) => {
+const Home = ({ myList, trends, originals, searching }) => {
 	return (
 		<React.Fragment>
-			<Search />
+			<Search isHome />
+			{searching.length > 0 ? (
+				<Categories title="We found...">
+					<Carousel>{searching.map((item) => <CarouselItem key={item.id} {...item} isList />)}</Carousel>
+				</Categories>
+			) : (
+				<p>Sorry, No results 🥺</p>
+			)}
 			{myList.length > 0 && (
 				<Categories title="My List">
 					<Carousel>{myList.map((item) => <CarouselItem key={item.id} {...item} isList />)}</Carousel>
@@ -31,7 +38,8 @@ const mapStateToProps = (state) => {
 	return {
 		myList: state.mylist,
 		trends: state.trends,
-		originals: state.originals
+		originals: state.originals,
+		searching: state.searching
 	};
 };
 

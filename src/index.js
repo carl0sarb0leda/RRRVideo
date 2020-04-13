@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import * as actionCreators from './actions/index';
 import reducer from '../src/reducers/index';
 import App from './routes/App';
 
+//Defining Store
 const initialState = {
 	user: {},
 	playing: {},
+	searching: [],
 	mylist: [],
 	trends: [
 		{
@@ -171,7 +175,15 @@ const initialState = {
 	]
 };
 
-const store = createStore(reducer, initialState);
+//Compose for Redux DevTools
+const composeEnhancers = composeWithDevTools({
+	actionCreators,
+	trace: true,
+	traceLimit: 25
+});
+
+//Setting up the store
+const store = createStore(reducer, initialState, composeEnhancers());
 
 ReactDOM.render(
 	<Provider store={store}>

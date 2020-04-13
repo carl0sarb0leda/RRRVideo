@@ -9,11 +9,15 @@ import userIcon from '../assets/static/user-icon.png';
 
 const Header = (props) => {
 	const { user } = props;
+
+	//Validation to check if user has data, Object.keys is used because user is an object, not array
 	const hasUser = Object.keys(user).length > 0;
 
+	//handlers
 	const handleLogOut = () => {
 		props.logoutRequest({});
 	};
+
 	return (
 		<header className="header">
 			<Link to="/">
@@ -22,12 +26,16 @@ const Header = (props) => {
 			<div className="header__menu">
 				<div className="header__menu--profile">
 					{hasUser ? <img src={gravatar(user.email)} alt={user.email} /> : <img src={userIcon} alt="" />}
-					<p>Profile</p>
+					<p>
+						Welcome
+						<br />
+						{user.name}
+					</p>
 				</div>
 				<ul>
 					{hasUser ? (
 						<li>
-							<Link to="/">{user.name}</Link>
+							<Link to="/">Profile</Link>
 						</li>
 					) : null}
 					{hasUser ? (
