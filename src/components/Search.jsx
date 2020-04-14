@@ -13,7 +13,8 @@ const Search = (props) => {
 
 	//Handlers
 	const handlerChange = (event) => {
-		props.getVideoByTitle(event.target.value);
+		const videoTitle = event.target.value;
+		props.getVideoByTitle(videoTitle);
 	};
 
 	return (

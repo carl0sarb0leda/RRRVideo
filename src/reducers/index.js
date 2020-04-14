@@ -34,11 +34,13 @@ const reducer = (state, action) => {
 					[]
 			};
 		case 'GET_VIDEO_BY_TITLE':
+			let result = state.trends
+				.concat(state.originals)
+				.filter((item) => item.title.toLowerCase().includes(action.payload.toLowerCase()));
+
 			return {
 				...state,
-				searching: state.trends
-					.concat(state.originals)
-					.filter((item) => item.title.toLowerCase().includes(action.payload.toLowerCase()))
+				searching: action.payload ? (result.length > 0 ? result : 'NotFound') : []
 			};
 		default:
 			return state;

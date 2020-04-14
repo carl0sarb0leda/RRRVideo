@@ -11,23 +11,24 @@ const Home = ({ myList, trends, originals, searching }) => {
 	return (
 		<React.Fragment>
 			<Search isHome />
-			{searching.length > 0 ? (
-				<Categories title="We found...">
-					<Carousel>{searching.map((item) => <CarouselItem key={item.id} {...item} isList />)}</Carousel>
-				</Categories>
-			) : (
-				<p>Sorry, No results 🥺</p>
-			)}
+			{searching.length > 0 &&
+				(searching == 'NotFound' ? (
+					<h3 className="results__notfound">Sorry, No results 🥺</h3>
+				) : (
+					<Categories title="We found...">
+						<Carousel>{searching.map((item) => <CarouselItem key={item.id} {...item} />)}</Carousel>
+					</Categories>
+				))}
 			{myList.length > 0 && (
 				<Categories title="My List">
 					<Carousel>{myList.map((item) => <CarouselItem key={item.id} {...item} isList />)}</Carousel>
 				</Categories>
 			)}
 			<Categories title="Trends">
-				<Carousel>{trends.map((item) => <CarouselItem key={item.id} {...item} />)}</Carousel>
+				<Carousel>{trends.map((item) => <CarouselItem key={item.id} {...item} isNormal />)}</Carousel>
 			</Categories>
 			<Categories title="Originals">
-				<Carousel>{originals.map((item) => <CarouselItem key={item.id} {...item} />)}</Carousel>
+				<Carousel>{originals.map((item) => <CarouselItem key={item.id} {...item} isNormal />)}</Carousel>
 			</Categories>
 		</React.Fragment>
 	);
