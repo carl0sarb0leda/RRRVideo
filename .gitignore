@@ -74,3 +74,6 @@ yarn-error.log
 
 # Build
 dist/
+
+#Folder for production
+src/server/public
