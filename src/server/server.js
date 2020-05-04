@@ -8,9 +8,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { renderRoutes } from 'react-router-config'
 import { StaticRouter } from 'react-router-dom'
-import serverRoutes from '../frontend/routes/serverRoutes'
-import reducer from '../frontend/reducers/index';
-import initialState from '../frontend/initialState'
+import serverRoutes from '../client/routes/serverRoutes'
+import reducer from '../client/reducers/index';
+import initialState from '../client/initialState'
 import getManifest from './getManifest'
 
 //Calling from .env

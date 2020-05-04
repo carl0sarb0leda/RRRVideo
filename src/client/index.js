@@ -5,7 +5,7 @@ import { createStore, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { Router } from 'react-router'
 import { createBrowserHistory } from 'history'
-import reducer from '../frontend/reducers/index';
+import reducer from '../client/reducers/index';
 import App from './routes/App';
 
 //ServerRoutes
