@@ -1,10 +1,10 @@
 {
-	"name": "RRRVideo",
+	"name": "rrr_video",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
+		"test": "jest",
 		"build": "webpack-cli --config webpack.config.js",
 		"start:dev": "nodemon src/server/index"
 	},
@@ -26,7 +26,6 @@
 		"helmet": "^3.22.0",
 		"history": "^4.10.1",
 		"ignore-styles": "^5.0.1",
-		"jest": "^25.5.4",
 		"md5": "^2.2.1",
 		"nodemon": "^2.0.3",
 		"prop-types": "^15.7.2",
@@ -52,12 +51,22 @@
 		"clean-webpack-plugin": "^3.0.0",
 		"compression-webpack-plugin": "^3.1.0",
 		"css-loader": "^3.5.3",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.2",
 		"file-loader": "^4.3.0",
+		"jest": "^25.5.4",
 		"mini-css-extract-plugin": "^0.7.0",
 		"node-sass": "^4.14.0",
 		"sass-loader": "^7.3.1",
 		"terser-webpack-plugin": "^2.3.6",
 		"webpack-cli": "^3.3.11",
 		"webpack-dev-server": "^3.10.3"
+	},
+	"jest": {
+		"setupFilesAfterEnv": [ "<rootDir>/src/__test__/setupTest.js" ],
+		"moduleNameMapper": {
+			"^.+\\.(css|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
+			"^.+\\.(gif|ttf|eot|svg|png)$": "<rootDir>/src/__mocks__/fileMock.js"
+		}
 	}
 }
