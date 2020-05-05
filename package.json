@@ -57,13 +57,16 @@
 		"jest": "^25.5.4",
 		"mini-css-extract-plugin": "^0.7.0",
 		"node-sass": "^4.14.0",
+		"react-test-renderer": "^16.13.1",
 		"sass-loader": "^7.3.1",
 		"terser-webpack-plugin": "^2.3.6",
 		"webpack-cli": "^3.3.11",
 		"webpack-dev-server": "^3.10.3"
 	},
 	"jest": {
-		"setupFilesAfterEnv": [ "<rootDir>/src/__test__/setupTest.js" ],
+		"setupFilesAfterEnv": [
+			"<rootDir>/src/__test__/setupTest.js"
+		],
 		"moduleNameMapper": {
 			"^.+\\.(css|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
 			"^.+\\.(gif|ttf|eot|svg|png)$": "<rootDir>/src/__mocks__/fileMock.js"
