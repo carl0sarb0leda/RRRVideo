@@ -6,5 +6,5 @@ describe('This is a test suit', () => {
     });
 });
 
-beforeAll(() => console.log('Starting All Test'))
-afterAll(() => console.log('Finish All Test'))
+// beforeAll(() => console.log('Starting All Test'))
+// afterAll(() => console.log('Finish All Test'))
