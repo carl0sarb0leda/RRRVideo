@@ -7,6 +7,7 @@
 		"test": "jest",
 		"test:update": "jest --updateSnapshot",
 		"build": "webpack-cli --config webpack.config.js",
+		"start": "webpack-dev-server --open --mode development",
 		"start:dev": "nodemon src/server/index"
 	},
 	"keywords": [],
@@ -68,9 +69,7 @@
 	},
 	"jest": {
 		"verbose": true,
-		"setupFilesAfterEnv": [
-			"<rootDir>/src/__test__/setupTest.js"
-		],
+		"setupFilesAfterEnv": [ "<rootDir>/src/__test__/setupTest.js" ],
 		"moduleNameMapper": {
 			"^.+\\.(css|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
 			"^.+\\.(gif|ttf|eot|svg|png)$": "<rootDir>/src/__mocks__/fileMock.js"
